@@ -11,6 +11,9 @@ class ModelloRedditi
 
     public function __construct($info, $prefix) {
         $this->pdf = new PdfDocument();
+        $source = dirname(__FILE__) . '/../../resources/pdf/PF-' . static::FISCAL_YEAR . '.pdf';
+        $dest = dirname(__FILE__) . '/../../resources/pdf/' . $prefix . '-' . static::FISCAL_YEAR . '.pdf';
+        file_put_contents($dest, file_get_contents($source));
 
         $this->fiscalYear = $info['fiscal_year'];
 
