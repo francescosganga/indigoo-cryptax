@@ -97,7 +97,7 @@ class ReportWrapper
             ]);
         }
 
-        return $twig->render('report.html', $this->report->getInfoForRender() + [
+        return json_encode([
             'header' => HEADER,
             'years' => $yearSelectors,
             'forms' => $forms,
