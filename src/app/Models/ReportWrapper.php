@@ -10,8 +10,10 @@ use CrypTax\Utils\CryptoInfoUtils;
 class ReportWrapper
 {
     private Report $report;
+    private $prefix;
 
     public function __construct($transactionsFileContent, $exchangeInterestTypes = []) {
+        $this->prefix = "ciaooo";
         $this->report = new Report($transactionsFileContent, $exchangeInterestTypes);
     }
 
@@ -123,7 +125,7 @@ class ReportWrapper
             'rm' => $this->getSectionRmInfo($year)
         ];
 
-        $modelloRedditi = new ModelloRedditi($info, uniqid());
+        $modelloRedditi = new ModelloRedditi($info, $this->prefix);
         return $modelloRedditi->getPdf();
     }
 
