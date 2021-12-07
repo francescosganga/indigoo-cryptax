@@ -9,6 +9,8 @@ class VersionUtils
     }
 
     public static function getVersion() {
+        return 1;
+
         if (file_exists(dirname(__FILE__) . '/../../version.txt')) {
             $version = file_get_contents(dirname(__FILE__) . '/../../version.txt');
             $version = explode(PHP_EOL, $version);
@@ -19,6 +21,7 @@ class VersionUtils
     }
 
     public static function getVersionDate() {
+        return '2021-12-07';
         if (file_exists(dirname(__FILE__) . '/../../version.txt')) {
             $version = file_get_contents(dirname(__FILE__) . '/../../version.txt');
             $version = explode(PHP_EOL, $version);

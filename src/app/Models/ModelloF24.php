@@ -3,7 +3,6 @@
 namespace CrypTax\Models;
 
 use CrypTax\Models\PdfDocument;
-use CrypTax\Utils\VersionUtils;
 
 class ModelloF24
 {
