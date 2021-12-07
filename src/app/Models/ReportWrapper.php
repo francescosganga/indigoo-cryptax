@@ -123,7 +123,7 @@ class ReportWrapper
             'rm' => $this->getSectionRmInfo($year)
         ];
 
-        $modelloRedditi = new ModelloRedditi($info, uniqid("", true));
+        $modelloRedditi = new ModelloRedditi($info, uniqid());
         return $modelloRedditi->getPdf();
     }
 
