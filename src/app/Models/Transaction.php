@@ -6,7 +6,6 @@ use CrypTax\Exceptions\InvalidTransactionException;
 use CrypTax\Exceptions\TooFewTransactionFields;
 
 use CrypTax\Utils\DateUtils;
-use CrypTax\Utils\CryptoInfoUtils;
 
 class Transaction
 {
@@ -129,7 +128,7 @@ class Transaction
 
     private function setTicker($ticker) {
         $ticker = preg_replace('/\([^)]+\)/', '', $ticker);
-        $this->ticker = CryptoInfoUtils::getCryptoTicker(trim($ticker));
+        $this->ticker = $ticker;
 
         if ($this->ticker === '') {
             throw new InvalidTransactionException($this->id, 'ticker', $ticker);
@@ -152,8 +151,6 @@ class Transaction
 
         if (is_numeric($value) && floatval($value) > 0) {
             $this->value = floatval($value);
-        } elseif ((is_numeric($value) && floatval($value) === 0.0 ) || trim($value) === '') {
-            $this->value = CryptoInfoUtils::getCryptoPrice($this->ticker, $this->date) * $this->amount;
         } else {
             throw new InvalidTransactionException($this->id, 'value',  $value);
         }
