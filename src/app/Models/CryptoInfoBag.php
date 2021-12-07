@@ -47,7 +47,7 @@ class CryptoInfoBag
 
         foreach ($transactions AS $transaction) {
             if (!isset($this->cryptoInfo[$transaction->ticker])) {
-                $this->cryptoInfo[$transaction->ticker] = new CryptoInfo($transaction->ticker, $this->fiscalYear);
+                $this->cryptoInfo[$transaction->ticker] = new CryptoInfo($transaction->ticker, $this->fiscalYear, $transaction->value);
             }
         }
     }

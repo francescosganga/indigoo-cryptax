@@ -58,15 +58,24 @@ class CryptoInfo
     private $fiscalYear;
 
     /**
+     * Current value.
+     *
+     * @var float
+     */
+    private $value;
+
+    /**
      * Initialize the cryptocurrency name and ticker and set the fiscal year.
      *
      * @param string $ticker
      * @param integer $fiscalYear
+     * @param float $value
      */
-    public function __construct($ticker, $fiscalYear) {
+    public function __construct($ticker, $fiscalYear, $value) {
         $this->ticker = $ticker;
         $this->name = $ticker;
         $this->fiscalYear = $fiscalYear;
+        $this->value = $value;
     }
 
     /**
@@ -166,7 +175,7 @@ class CryptoInfo
         }
 
         $daysInYear = DateUtils::getNumberOfDaysInYear($this->fiscalYear);
-        $price = CryptoInfoUtils::getCryptoPrice($this->ticker, $this->fiscalYear . '-' . $priceDate);
+        $price = $this->value;
 
         return $dailyBalancesSum / $daysInYear * $price;
     }
@@ -182,7 +191,7 @@ class CryptoInfo
             return 0.0;
         }
         
-        $price = CryptoInfoUtils::getCryptoPrice($this->ticker, $this->fiscalYear . '-' . $priceDate);
+        $price = $this->value;
 
         return max($this->dailyBalances) * $price;
     }
@@ -224,7 +233,7 @@ class CryptoInfo
                 $dateToFetch = $priceDate;
             }
 
-            $price = CryptoInfoUtils::getCryptoPrice($this->ticker, $dateToFetch);
+            $price = $this->value;
 
             return $balance * $price;
         }, $this->dailyBalances, array_keys($this->dailyBalances));
