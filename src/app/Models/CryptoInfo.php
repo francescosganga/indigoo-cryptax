@@ -124,7 +124,7 @@ class CryptoInfo
             return 0.0;
         }
 
-        return $this->price;
+        return $this->value;
     }
 
     /**
@@ -139,7 +139,7 @@ class CryptoInfo
             return 0.0;
         }
 
-        return $this->price;
+        return $this->value;
     }
 
     /**
