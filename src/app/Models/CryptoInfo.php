@@ -64,8 +64,8 @@ class CryptoInfo
      * @param integer $fiscalYear
      */
     public function __construct($ticker, $fiscalYear) {
-        $this->ticker = CryptoInfoUtils::getCryptoTicker($ticker);
-        $this->name = CryptoInfoUtils::getCryptoName($ticker);
+        $this->ticker = $ticker;
+        $this->name = $ticker;
         $this->fiscalYear = $fiscalYear;
     }
 
