@@ -6,7 +6,7 @@ use CrypTax\ModelloRedditiTemplates\TemplatesManager;
 
 abstract class ModelloRedditiRw
 {
-    public static function fill($pdf, $info, $fiscalYear) {
+    public static function fill($pdf, $info, $fiscalYear, $prefix) {
         $template = TemplatesManager::getTemplate($fiscalYear, TemplatesManager::TYPE_RW);
 
         $template->setValue('codice_titolo_possesso', '1');
@@ -38,6 +38,6 @@ abstract class ModelloRedditiRw
 
         $template->setValue('solo_monitoraggio', 'X');
 
-        $template->writeOnPdf($pdf);
+        $template->writeOnPdf($pdf, $prefix);
     }
 }

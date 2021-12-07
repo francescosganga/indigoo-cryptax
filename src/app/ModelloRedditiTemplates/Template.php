@@ -36,8 +36,8 @@ abstract class Template
         ];
     }
 
-    public function writeOnPdf($pdf) {
-        $pdf->setSourceFile(dirname(__FILE__) . '/../../resources/pdf/PF-' . static::FISCAL_YEAR . '.pdf');
+    public function writeOnPdf($prefix, $pdf) {
+        $pdf->setSourceFile(dirname(__FILE__) . '/../../resources/pdf/' . $prefix . '-' . static::FISCAL_YEAR . '.pdf');
 
         $currentPage = 0;
 
