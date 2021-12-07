@@ -8,12 +8,12 @@ class ModelloF24
 {
     private $pdf = null;
 
-    public function __construct($fiscalYear, $taxes) {
+    public function __construct($fiscalYear, $taxes, $prefix) {
         $totalTaxes = 0;
 
         $this->pdf = new PdfDocument();
 
-        $this->pdf->setSourceFile(dirname(__FILE__) . '/../../resources/pdf/F24.pdf');
+        $this->pdf->setSourceFile(dirname(__FILE__) . '/../../resources/pdf/' . $prefix . '-F24.pdf');
         $templateId = $this->pdf->importPage(1);
         $this->pdf->addPage();
         $this->pdf->useTemplate($templateId);

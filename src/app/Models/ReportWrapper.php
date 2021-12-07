@@ -148,7 +148,7 @@ class ReportWrapper
             $taxes[] = ['code' => 1242, 'amount' => $rmInfo['tax']];
         }
 
-        $modelloF24 = new ModelloF24($year, $taxes);
+        $modelloF24 = new ModelloF24($year, $taxes, $this->prefix);
         return $modelloF24->getPdf();
     }
 
