@@ -3,7 +3,6 @@
 namespace CrypTax\Models;
 
 use CrypTax\Models\Transaction;
-use CrypTax\Utils\CryptoInfoUtils;
 use CrypTax\Utils\DateUtils;
 
 class CryptoInfo
@@ -125,7 +124,7 @@ class CryptoInfo
             return 0.0;
         }
 
-        return CryptoInfoUtils::getCryptoPrice($this->ticker, DateUtils::getFirstDayOfYear($this->fiscalYear));
+        return $this->price;
     }
 
     /**
@@ -140,7 +139,7 @@ class CryptoInfo
             return 0.0;
         }
 
-        return CryptoInfoUtils::getCryptoPrice($this->ticker, DateUtils::getLastDayOfYear($this->fiscalYear));
+        return $this->price;
     }
 
     /**
